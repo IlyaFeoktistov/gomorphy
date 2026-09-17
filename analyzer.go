@@ -683,13 +683,7 @@ func tagGrammeme(tag string, candidates []string) string {
 // tagMatches reports whether tag contains all of the specified grammemes
 // An empty string for any parameter means "don't care"
 func tagMatches(tag, cas, number, gender, animacy string, extra ...string) bool {
-	if !((cas == "" || strings.Contains(tag, cas)) &&
-		(number == "" || strings.Contains(tag, number)) &&
-		(gender == "" || strings.Contains(tag, gender)) &&
-		(animacy == "" || strings.Contains(tag, animacy))) {
-		return false
-	}
-	for _, g := range extra {
+	for _, g := range append([]string{cas, number, gender, animacy}, extra...) {
 		if g != "" && !strings.Contains(tag, g) {
 			return false
 		}
