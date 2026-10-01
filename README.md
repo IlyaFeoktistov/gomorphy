@@ -5,13 +5,13 @@ Russian morphological analyzer for Go, backed by [pymorphy3](https://github.com/
 ## Installation
 
 ```
-go get github.com/jus1d/gomorphy
+go get github.com/IlyaFeoktistov/gomorphy
 ```
 
 ## Usage
 
 ```go
-import morph "github.com/jus1d/gomorphy"
+import morph "github.com/IlyaFeoktistov/gomorphy"
 
 a, err := morph.Default()
 if err != nil {
@@ -30,6 +30,26 @@ tag := a.Tag("кошка")
 forms = a.PhraseFormsConcordant("красивая кошка")
 // [красивая кошка красивой кошки красивой кошке красивую кошку ...]
 ```
+
+### All parses with tags
+
+`Tag` and `WordForms` return the best tag and untagged forms. `Parses` returns
+every parse of an exact word form (no "е"/"ё" substitution) together with the
+whole lexeme, each form carrying its own tag:
+
+```go
+for _, p := range a.Parses("стали") {
+	fmt.Println(p.Tag, p.Lexeme[0].Word)
+	// VERB,perf,intr plur,past,indc стать
+	// NOUN,inan,femn sing,gent сталь
+	// NOUN,inan,femn sing,datv сталь
+	// ...
+}
+```
+
+This fork of [jus1d/gomorphy](https://github.com/jus1d/gomorphy) adds `Parses`
+(`lexemes.go`) and is used by the [Rech](https://github.com/IlyaFeoktistov/Rech)
+compiler.
 
 ## Dictionary
 

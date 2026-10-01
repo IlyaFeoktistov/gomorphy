@@ -1,3 +1,3 @@
-module github.com/jus1d/gomorphy
+module github.com/IlyaFeoktistov/gomorphy
 
 go 1.21

@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	morph "github.com/jus1d/gomorphy"
+	morph "github.com/IlyaFeoktistov/gomorphy"
 )
 
 func main() {

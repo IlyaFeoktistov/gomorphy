@@ -28,7 +28,7 @@ formatters:
   settings:
     goimports:
       local-prefixes:
-        - github.com/jus1d/gomorphy
+        - github.com/IlyaFeoktistov/gomorphy
 
 issues:
   max-same-issues: 0
