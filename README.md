@@ -1,5 +1,10 @@
 # gomorphy
 
+> Fork of [jus1d/gomorphy](https://github.com/jus1d/gomorphy) used by the
+> [Rech](https://github.com/IlyaFeoktistov/Rech) compiler. Adds
+> [`Parses`](#all-parses-with-tags): every parse of a word form with a tag on
+> each form of its lexeme. Otherwise follows upstream.
+
 Russian morphological analyzer for Go, backed by [pymorphy3](https://github.com/no-plagiarism/pymorphy3) / [OpenCorpora](http://opencorpora.org/) dictionaries embedded at compile time.
 
 ## Installation
@@ -46,10 +51,6 @@ for _, p := range a.Parses("стали") {
 	// ...
 }
 ```
-
-This fork of [jus1d/gomorphy](https://github.com/jus1d/gomorphy) adds `Parses`
-(`lexemes.go`) and is used by the [Rech](https://github.com/IlyaFeoktistov/Rech)
-compiler.
 
 ## Dictionary
 
